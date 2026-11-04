@@ -1,0 +1,138 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(14, 9, 29);
+    color: white;
+    font-family: "Poppins";
+}
+
+button{
+    font-family: "Poppins";
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    opacity: .8;
+    transition: all .3s;
+}
+
+button:hover{
+    opacity: 1;
+}
+p{
+    opacity: .8;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+}
+header img {
+    width: 60px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.171);
+    backdrop-filter: blur(20px);
+    border-radius: 50px;
+}
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    background-color: rgba(255, 255, 255, 0.137);
+    padding: 16px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+}
+section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+}
+.secao1{
+    background-image: url("img/smoke-background.jpg");
+background-position: center;
+height: 100vh;
+justify-content: center;
+align-items: center;
+background-size: cover;
+
+h2{
+    font-size: 7vw;
+  mix-blend-mode: color-dodge;
+  color: rgb(228, 226, 226);
+  justify-content: center;
+  align-items: center;
+}
+}
+.conteudoprincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        text-align: center;
+        font-size: 35px;
+        font-weight: 500;
+    }
+
+    .divBotoes{
+        display: flex;
+        gap: 40px;
+        margin-top:80px;
+    }
+}
+
+.botao1{
+    background-color: rgb(252, 250, 250);
+    padding: 6px 6px 6px 6px;
+    gap: 12px;
+}
+
+.botao2{
+    padding: 12px;
+    background-color: rgba(240, 248, 255, 0.144);
+    color: aliceblue;
+}
+
+.secao2{
+    align-items: center;
+    background-image: url(img/puff-purple-smoke.jpg);
+    background-position: center;
+   background-size: cover;
+
+
+    
+    img{
+      width: 60px;  
+    }
+}
+
+.titulinho{
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.divCards{
+    display:flex ;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 100%;
+    
+}
