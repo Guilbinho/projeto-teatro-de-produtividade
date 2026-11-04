@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="escuro" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Parte II — Teatro de Produtividade</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/parte2.css">
+  <style>
+    /* só para esta demo: em index.html estes valores vêm do SEU style.css */
+    body { background-color: var(--bg, rgb(14, 9, 29)); color: var(--text, #fff); font-family: "Poppins", sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== BLOCO A: botão de tema (coloque dentro do seu <header>) ===== -->
+  <header class="p-3 d-flex justify-content-end">
+    <button id="btnTema" type="button" aria-pressed="false" aria-label="Alternar entre tema claro e escuro">
+      <span id="btnTemaTexto">Modo claro</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ===== BLOCO B: gráficos ===== -->
+    <section id="graficos" class="py-5">
+      <div class="container">
+        <h2 class="h3 mb-4">As táticas em números</h2>
+        <div class="row g-4">
+          <div class="col-12 col-lg-7">
+            <figure class="glass p-3 h-100 m-0">
+              <figcaption class="fw-semibold mb-3">Táticas para "parecer produtivo" (% que admite usar)</figcaption>
+              <div class="grafico-box">
+                <canvas id="graficoTaticas" role="img"
+                  aria-label="Gráfico de barras. Remotos: status ativo sem trabalhar 64%, conversas sociais no chat 39%, e-mails agendados 31%. Presenciais: andar pelo escritório 37%, reuniões para serem vistos 35%, chegar antes ou sair depois do gerente 33%.">
+                  Gráfico indisponível. Presenciais: 37%, 35% e 33%. Remotos: 39%, 31% e 64%.
+                </canvas>
+              </div>
+              <p class="small mt-3 mb-0">Fonte: BambooHR (2024), citada pela Forbes Brasil. Pesquisa com 1.500 trabalhadores e profissionais de RH nos EUA.</p>
+            </figure>
+          </div>
+          <div class="col-12 col-lg-5">
+            <figure class="glass p-3 h-100 m-0">
+              <figcaption class="fw-semibold mb-3">Como se divide um turno de 8 horas</figcaption>
+              <div class="grafico-box grafico-box--rosca">
+                <canvas id="graficoTurno" role="img"
+                  aria-label="Gráfico de rosca. 76% do turno é trabalho efetivo e 24%, cerca de duas horas, é tempo sem trabalhar.">
+                  Gráfico indisponível. 76% do turno é trabalho efetivo e 24% é tempo sem trabalhar.
+                </canvas>
+              </div>
+              <p class="small mt-3 mb-0">Fonte: BambooHR (2024), citada pela Forbes Brasil. Percentuais autodeclarados.</p>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOCO C: teste interativo ===== -->
+    <section id="teste" class="py-5">
+      <div class="container">
+        <h2 class="h3 mb-2">Teste: quanto teatro tem na sua rotina?</h2>
+        <p class="mb-4">Seis perguntas baseadas nas táticas descritas nas pesquisas. Responda pensando no seu trabalho ou estágio.</p>
+
+        <div id="quiz" class="glass quiz-card p-4 mx-auto">
+          <div id="quizCorpo">
+            <div class="d-flex justify-content-between small mb-2">
+              <span id="quizContador">Pergunta 1 de 6</span>
+              <span id="quizPct">0%</span>
+            </div>
+            <div class="progress mb-4" id="quizProgressoBox" role="progressbar"
+                 aria-label="Progresso do teste" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" id="quizProgresso" style="width: 0%"></div>
+            </div>
+            <div aria-live="polite">
+              <h3 class="h5" id="quizPergunta" tabindex="-1"></h3>
+              <p class="small mb-0" id="quizRef"></p>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <button type="button" class="btn btn-primary px-4" id="quizSim">Sim</button>
+              <button type="button" class="btn btn-outline-light px-4" id="quizNao">Não</button>
+              <button type="button" class="btn btn-link ms-auto" id="quizVoltar">Voltar</button>
+            </div>
+          </div>
+          <div id="quizResultado" hidden aria-live="polite"></div>
+        </div>
+
+        <p class="small text-center mt-3 mb-0">
+          Teste educativo, não é uma escala psicológica validada nem diagnóstico.
+          <button type="button" class="btn btn-link btn-sm p-0 align-baseline" data-bs-toggle="modal" data-bs-target="#modalMetodologia">
+            Metodologia e limites dos dados
+          </button>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== BLOCO D: modal de metodologia (Bootstrap) ===== -->
+  <div class="modal fade" id="modalMetodologia" tabindex="-1" aria-labelledby="tituloMetodologia" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="tituloMetodologia">Metodologia e limites dos dados</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>Os dados vêm de pesquisas feitas nos <strong>EUA</strong> (Visier, 2023, com 1.000 pessoas; BambooHR, 2024, com 1.500 pessoas), citadas pela Forbes Brasil.</li>
+            <li>As respostas são <strong>autodeclaradas</strong>: mostram comportamento admitido e percepção, não medição direta.</li>
+            <li>Os resultados não representam necessariamente o Brasil.</li>
+            <li>O teste ao lado usa essas táticas como perguntas. Ele é educativo e não substitui avaliação profissional.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: ordem importa (Chart.js antes do app.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

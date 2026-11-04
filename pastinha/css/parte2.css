@@ -1,0 +1,112 @@
+/* =====================================================================
+   PARTE II — estilos dos recursos copilotados (Claude)
+   Usa as variáveis do seu :root (Parte I): --bg, --text, --surface,
+   --surface-border. Cada uma tem um valor reserva caso ainda não exista.
+   ===================================================================== */
+
+/* Tema claro: só sobrescreve as variáveis */
+[data-tema="claro"] {
+  --bg: #f5f3ff;
+  --text: #1b1530;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-border: rgba(27, 21, 48, 0.15);
+}
+
+/* Seções com imagem de fundo escura mantêm texto claro nos dois temas */
+.secao1,
+.secao2 {
+  color: #fff;
+}
+
+/* Barra de navegação flutuante legível sobre fundo claro */
+[data-tema="claro"] header ul {
+  background-color: rgba(14, 9, 29, 0.65);
+}
+
+/* O seletor global button {width: 80px} da Parte I não deve afetar .btn */
+button.btn {
+  width: auto;
+}
+
+/* Glassmorphism + profundidade */
+.glass {
+  background: var(--surface, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--surface-border, rgba(255, 255, 255, 0.18));
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--text, #fff);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Contêineres dos gráficos (Chart.js precisa de altura definida) */
+.grafico-box {
+  position: relative;
+  height: 340px;
+}
+
+.grafico-box--rosca {
+  height: 300px;
+}
+
+/* Teste */
+.quiz-card {
+  max-width: 720px;
+}
+
+.quiz-card h3:focus,
+.quiz-card [tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Animação de entrada */
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.anima-surgir {
+  animation: surgir 0.45s ease both;
+}
+
+/* Botão de tema: fundo escuro translúcido, legível sobre qualquer seção */
+#btnTema {
+  background-color: rgba(14, 9, 29, 0.65);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  padding: 8px 14px;
+  transition: background-color 0.3s ease;
+}
+
+#btnTema:hover {
+  background-color: rgba(14, 9, 29, 0.9);
+}
+
+/* Foco visível */
+#btnTema:focus-visible,
+.quiz-card .btn:focus-visible {
+  outline: 2px solid var(--text, #fff);
+  outline-offset: 3px;
+}
+
+[data-tema="claro"] .btn-outline-light {
+  --bs-btn-color: #1b1530;
+  --bs-btn-border-color: #1b1530;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #1b1530;
+  --bs-btn-hover-border-color: #1b1530;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .anima-surgir { animation: none; }
+  .glass { transition: none; }
+  .glass:hover { transform: none; }
+}

@@ -136,3 +136,19 @@ h2{
     width: 100%;
     
 }
+
+header a {
+    color: white;
+    text-decoration: none;
+    opacity: .8;
+    transition: opacity .3s;
+}
+
+header a:hover {
+    opacity: 1;
+}
+
+header a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
